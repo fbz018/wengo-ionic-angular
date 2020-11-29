@@ -1,0 +1,18 @@
+<ion-toolbar>
+  <ion-button slot="start" (click)="goBack()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-button>
+  <ion-title>Details</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <div class="photo-details" *ngIf="(photoDetails$ | async); let data; else loading">
+    <ion-img [src]="data.download_url"></ion-img>
+  </div>
+
+  <ng-template #loading>
+    <div class="loading">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>
+  </ng-template>
+</ion-content>

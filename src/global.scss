@@ -24,3 +24,16 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400,500');
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+
+ion-header, ion-button{
+    --ion-background-color: #4c8dff;
+}
