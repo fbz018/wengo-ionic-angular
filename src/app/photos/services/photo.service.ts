@@ -5,14 +5,11 @@ import { PhotoData } from '../models/photo-data';
 
 @Injectable()
 export class PhotoService {
-  private page = 1;
-  private limit = 30;
 
   constructor(private http: HttpClient) {}
 
   getPhotosList(): Observable<PhotoData[]> {
     const PHOTO_LIST_PATH = 'https://picsum.photos/v2/list';
-    // ?page=' + this.page + '&limit=' + this.limit;
     return this.http.get<PhotoData[]>(PHOTO_LIST_PATH);
   }
 
