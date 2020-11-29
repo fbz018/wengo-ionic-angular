@@ -22,6 +22,7 @@ export class PhotosListPage implements OnInit {
   public filterInput$: Observable<string>;
 
   constructor(private photoservice: PhotoService) {
+    // Initialize class Data
     this.searchControl = new FormControl('');
     this.filterInput$ = this.searchControl.valueChanges.pipe(
       startWith(''),
@@ -31,7 +32,15 @@ export class PhotosListPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getListPhotos();
+    this.getFilteredPhotos();
+  }
+
+  private getListPhotos(): void {
     this.photosItems$ = this.photoservice.getPhotosList();
+  }
+
+  private getFilteredPhotos(): void {
     this.filteredItems$ = combineLatest([
       this.photosItems$,
       this.filterInput$,
@@ -47,7 +56,7 @@ export class PhotosListPage implements OnInit {
 
   public loadData(event: Event) {
     setTimeout(() => {
-      this.photosItems$ = this.photoservice.getPhotosList();
+      this.getListPhotos();
       (event.target as HTMLIonInfiniteScrollElement).complete();
     }, 500);
   }

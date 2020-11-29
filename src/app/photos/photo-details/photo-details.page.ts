@@ -17,8 +17,8 @@ export class PhotoDetailsPage implements OnInit {
 
   ngOnInit() {
     this.photoDetails$ = this.route.paramMap.pipe(
-  switchMap((params: ParamMap) =>
-  this.photoService.getPhotoDetails(params.get('id'))));
+      switchMap((params: ParamMap) =>
+        this.photoService.getPhotoDetails(params.get('id'))));
   }
 
   public goBack(): void {
